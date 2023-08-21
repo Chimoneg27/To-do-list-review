@@ -71,7 +71,7 @@ form.addEventListener('submit', (event) => {
   localStorage.setItem('todos', JSON.stringify(todos));
 });
 
-function checkTodo(todoId) {
+const checkTodo = (todoId) => {
   todos = todos.map((todo, index) => ({
     ...todo,
     completed: index === todoId ? !todo.completed : todo.completed,
@@ -79,14 +79,14 @@ function checkTodo(todoId) {
 
   renderTodos();
   localStorage.setItem('todos', JSON.stringify(todos));
-}
+};
 
-function editTodo(todoId) {
+const editTodo = (todoId) => {
   todoInput.value = todos[todoId].value;
   EditTodoId = todoId;
-}
+};
 
-function deleteTodo(todoId) {
+const deleteTodo = (todoId) => {
   todos.splice(todoId, 1);
   EditTodoId = -1;
   todos.forEach((todo, index) => {
@@ -97,7 +97,7 @@ function deleteTodo(todoId) {
 
   renderTodos();
   localStorage.setItem('todos', JSON.stringify(todos));
-}
+};
 
 toDoListEl.addEventListener('click', (event) => {
   const { target } = event;
